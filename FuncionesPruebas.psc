@@ -1,39 +1,37 @@
-Funcion resultado  <- sumar(num1, num2)
-	si (num1 <> 0)Entonces
-		resultado = ConvertirATexto(num1+num2)
+Funcion resultado <- validar(num)
+	si (num <> 0 Y num > 0) Entonces
+		resultado = num
 	SiNo
-		resultado = 'No se puede sumar'
+		resultado = -1
 	FinSi
+FinFuncion
+
+Funcion resultado  <- sumar(num1, num2)
+		resultado = ConvertirATexto(num1+num2)
 FinFuncion
 
 Funcion resultado  <- restar(num1, num2)
-	si (num1 <> 0)Entonces
+	si validar(num1) <>-1 Entonces
 		resultado = ConvertirATexto(num1-num2)
-	SiNo
-		resultado = 'No se puede restar'
-	FinSi
+	FinSi	
 FinFuncion
 
 Funcion resultado  <- multiplicacion(num1, num2)
-	si (num1 <> 0)Entonces
+	si validar(num1) <>-1 Y validar(num2) <>1 Entonces
 		resultado = ConvertirATexto(num1*num2)
-	SiNo
-		resultado = 'No se puede multiplicar'
-	FinSi
+	FinSi	
 FinFuncion
 
 Funcion resultado  <- division(num1, num2)
-	si (num2 <> 0)Entonces
+	si validar(num2) <>-1 Entonces
 		resultado = ConvertirATexto(num1/num2)
-	SiNo
-		resultado = 'No se puede dividir en 0 '
-	FinSi
+	FinSi	
 FinFuncion
 
 
 Algoritmo FuncionesPruebas
 	suma = sumar(2,3)
-	resta = restar(2,3)
+	resta = restar(33,3)
 	multiplicar = multiplicacion(2,3)
 	dividir = division(2,3)
 	
